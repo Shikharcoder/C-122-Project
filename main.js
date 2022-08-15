@@ -6,7 +6,6 @@ speak_data = "";
 content = Math.floor(Math.random() * 100);
 x = "";
 y = "";
-to_number = Number(content);
 
 function preload() {
   loadImage("apple.png");
@@ -24,6 +23,7 @@ function start() {
 recognition.onresult = function (event) {
   console.log(event);
   var content = event.results[0][0].transcript;
+  to_number = Number(content);
   document.getElementById("status").innerHTML =
     "The speech has been recognized as : " + content;
   if (Number.isInteger(to_number)) {
